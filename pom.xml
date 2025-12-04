@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+  https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+<modelVersion>4.0.0</modelVersion>
+
+<groupId>br.edu.ifpr.gep</groupId>
+<artifactId>trabalho-portarias</artifactId>
+<version>1.0-SNAPSHOT</version>
+
+<properties>
+  <maven.compiler.source>17</maven.compiler.source>
+  <maven.compiler.target>17</maven.compiler.target>
+</properties>
+
+<dependencies>
+
+  <!-- MongoDB Java Driver -->
+  <dependency>
+    <groupId>org.mongodb</groupId>
+    <artifactId>mongo-java-driver</artifactId>
+    <version>3.12.14</version>
+  </dependency>
+
+</dependencies>
+
+<build>
+  <plugins>
+
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-compiler-plugin</artifactId>
+      <version>3.11.0</version>
+      <configuration>
+        <source>17</source>
+        <target>17</target>
+      </configuration>
+    </plugin>
+
+    <plugin>
+      <groupId>org.codehaus.mojo</groupId>
+      <artifactId>exec-maven-plugin</artifactId>
+      <version>3.1.0</version>
+      <configuration>
+        <mainClass>br.edu.ifpr.gep.aplicacao.Main</mainClass>
+
+        <systemProperties>
+          <systemProperty>
+            <key>java.util.logging.config.file</key>
+            <value>${project.basedir}/src/main/resources/logging.properties</value>
+          </systemProperty>
+        </systemProperties>
+
+        <cleanupDaemonThreads>false</cleanupDaemonThreads>
+        <killAfter>0</killAfter>
+      </configuration>
+    </plugin>
+
+
+  </plugins>
+</build>
+
+
+</project>
+
